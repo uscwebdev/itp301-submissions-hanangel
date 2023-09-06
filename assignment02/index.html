@@ -119,43 +119,68 @@
 </head>
 </head>
 <body>
+
+	<!-- header -->
+
 	<div id="header">
 		<h1>your shopping cart</h1>
 	</div>
 
+	<!-- items for sale -->
+
 	<div id="items">
+
+		<!-- first row of items -->
 		<div id="row1">
+
+			<!-- item 1 -->
 			<div class="container" id="i1">
 				 <img src="img/sumikkobunny.jpeg" alt="flower dino plush">
-				 <p>flower dino</p>
+				 <p>flower dino</p> 
+				 <!-- item 1 price -->
 				 <p>$<span id="i1price">14</span></p>
 			</div>
+
+			<!-- item 2 -->
 			<div class="container" id="i2">
 				 <img src="img/sumikkostar.jpeg" alt="star plush">
 				 <p>star</p>
+				 <!-- item 2 price -->
 				 <p>$<span id="i2price">7</span></p>
 			</div>
+
+			<!-- item 3 -->
 			<div class="container" id="i3">
 				 <img src="img/sumikkobear.jpeg" alt="peach bear plush">
 				 <p>peach bear</p>
+				  <!-- item 3 price -->
 				 <p>$<span id="i3price">12</span></p>
 			</div>
 			<div class="clearfloat"></div>
 		</div>
 		<div id="row2">
+
+			<!-- item 4 -->
 			<div class="container" id="i4">
 				 <img src="img/sumikkopeach.jpeg" alt="peach plush">
 				 <p>peach</p>
+				  <!-- item 4 price -->
 				 <p>$<span id="i4price">9</span></p>
 			</div>
+
+			<!-- item 5 -->
 			<div class="container" id="i5">
 				 <img src="img/sumikkoflower.jpeg" alt="sunflower plush">
 				 <p>sunflower</p>
+				  <!-- item 5 price -->
 				 <p>$<span id="i5price">10</span></p>
 			</div>
+
+			<!-- item 6 -->
 			<div class="container" id="i6">
 				 <img src="img/sumikko.jpeg" alt="butterfly plush">
 				 <p>butterfly</p>
+				  <!-- item 6 price -->
 				 <p>$<span id="i6price">13</span></p>
 			</div>
 			<div class="clearfloat"></div>
@@ -171,11 +196,31 @@
 	
 	<script>
 
+		/*
+		1. declare variable for subtotal
+
+		2. user clicks on any item
+
+		3. save item price in variable
+
+		4. add item price variable to subtotal variable
+
+		5. display new subtotal price
+		*/
+
+		// 1. declare variable for subtotal by reading current subtotal (0)
 		var subtotal = parseInt(document.querySelector("#subtotal").innerHTML);
 
+		// 2. user clicks on any item
 		document.querySelector("#i1").onclick = function(){
+
+			// 3. save item price in variable, convert price into integer
 			var i1price = parseInt(document.querySelector("#i1price").innerHTML);
+
+			// 4. update subtotal by adding item's price
 			subtotal = subtotal+i1price;
+
+			// 5. display new subtotal price
 			document.querySelector('#subtotal').innerHTML = subtotal;
 		};
 
