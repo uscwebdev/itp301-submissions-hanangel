@@ -271,9 +271,12 @@
 
 		3. save item price in variable
 
-		4. add item price variable to subtotal variable
-
-		5. display new subtotal price
+		4. IF CONDITION
+			- IF the remaining funds is greater than or equal to the item's price,
+			update the remaining funds by subtracting the item's price from it
+			- update the remaining funds display
+			- also update the subtotal variable and subtotal display
+			- ELSE inform the user 'insufficient funds' through an alert
 		*/
 
 		// 1. declare variable for subtotal by reading current subtotal (0)
@@ -281,14 +284,28 @@
 
 		// 2. user clicks on any item
 		document.querySelector("#i1").onclick = function(){
+
+			// 3. item price saved in variable
 			var i1price = parseInt(document.querySelector("#i1price").innerHTML);
+
+			// 4. if condition - if remaining funds is greater than/equal to item price
 			if (remaining >= i1price) {
+
+				// change subtotal (add to subtotal)
 				subtotal = subtotal+i1price;
+
+				// change subtotal display 
 				document.querySelector('#subtotal').innerHTML = subtotal;
+
+				// change remainder (subtract from remainder)
 				remaining = remaining - i1price;
 				console.log(remaining);
+
+				// change remainder display
 				document.querySelector('#remaining').innerHTML = remaining;
 			} else {
+
+				// else (not enough funds), alert user of insufficient funds
 				alert('Insufficient funds!');
 			}
 
