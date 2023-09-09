@@ -87,13 +87,43 @@
 
 		#row4-funds {
 			width:780px;
+			padding-top:5px;
 			padding-bottom:80px;
 			margin:0 auto;
 		}
 
 		#row4-funds h2 {
-			font-size:20px;
+			color:#f28500;
 			font-style:italic;
+		}
+
+		#row4-funds label {
+			font-family:'Josefin Sans', sans-serif;
+			font-size:24px;
+			margin-left:10px;
+		}
+
+		#row4-funds input {
+			margin-left:12px;
+			padding:9px 2px 4px;
+			height:20px;
+			border-width:1px;
+			border-radius:5px;
+		}
+
+		#add-btn {
+			font-family:'Josefin Sans', sans-serif;
+			font-size:18px;
+			height:40px;
+			margin-left:12px;
+			padding:10px 6px 6px;
+			border-width:1px;
+			border-radius:5px;
+		}
+
+		#add-btn:hover{
+			background-color:#f28500;
+			color:white;
 		}
 
 		.container {
@@ -200,6 +230,10 @@
 
 		<div id="row4-funds">
 			<h2>Remaining Funds: $<span id="remaining">0</span></h2>
+			<label for="amount">$</label>
+			<input type="text" id="amount" name="amount" size="18"/>
+
+			<button id="add-btn">Add Funds</button>
 		</div>
 
 
@@ -210,6 +244,25 @@
 	</div>
 	
 	<script>
+
+		/*
+		1. get user input on funds amount; have user enter in amount
+
+		2. user presses add funds
+
+		3. remaining funds updates; input box clears
+
+		4. user adds item to cart; subtotal increases and remaining funds' value decreases
+		*/
+
+		var remaining = 0;
+
+		document.querySelector("#add-btn").onclick = function(){
+			add = parseInt(document.querySelector("#amount").value);
+			remaining = remaining + add;
+			document.querySelector("#remaining").innerHTML = remaining;
+			document.querySelector("#amount").value = '';
+		}
 
 		/*
 		1. declare variable for subtotal
@@ -228,45 +281,82 @@
 
 		// 2. user clicks on any item
 		document.querySelector("#i1").onclick = function(){
-
-			// 3. save item price in variable, convert price into integer
 			var i1price = parseInt(document.querySelector("#i1price").innerHTML);
+			if (remaining >= i1price) {
+				subtotal = subtotal+i1price;
+				document.querySelector('#subtotal').innerHTML = subtotal;
+				remaining = remaining - i1price;
+				console.log(remaining);
+				document.querySelector('#remaining').innerHTML = remaining;
+			} else {
+				alert('Insufficient funds!');
+			}
 
-			// 4. update subtotal by adding item's price
-			subtotal = subtotal+i1price;
-
-			// 5. display new subtotal price
-			document.querySelector('#subtotal').innerHTML = subtotal;
 		};
 
 		document.querySelector("#i2").onclick = function(){
 			var i2price = parseInt(document.querySelector("#i2price").innerHTML);
-			subtotal = subtotal+i2price;
-			document.querySelector('#subtotal').innerHTML = subtotal;
+			if (remaining >= i2price) {
+				subtotal = subtotal+i2price;
+				document.querySelector('#subtotal').innerHTML = subtotal;
+				remaining = remaining - i2price;
+				console.log(remaining);
+				document.querySelector('#remaining').innerHTML = remaining;
+			} else {
+				alert('Insufficient funds!');
+			}
 		};
 
 		document.querySelector("#i3").onclick = function(){
 			var i3price = parseInt(document.querySelector("#i3price").innerHTML);
-			subtotal = subtotal+i3price;
-			document.querySelector('#subtotal').innerHTML = subtotal;
+			if (remaining >= i3price) {
+				subtotal = subtotal+i3price;
+				document.querySelector('#subtotal').innerHTML = subtotal;
+				remaining = remaining - i3price;
+				console.log(remaining);
+				document.querySelector('#remaining').innerHTML = remaining;
+			} else {
+				alert('Insufficient funds!');
+			}
 		};
 
 		document.querySelector("#i4").onclick = function(){
 			var i4price = parseInt(document.querySelector("#i4price").innerHTML);
-			subtotal = subtotal+i4price;
-			document.querySelector('#subtotal').innerHTML = subtotal;
+			if (remaining >= i4price) {
+				subtotal = subtotal+i4price;
+				document.querySelector('#subtotal').innerHTML = subtotal;
+				remaining = remaining - i4price;
+				console.log(remaining);
+				document.querySelector('#remaining').innerHTML = remaining;
+			} else {
+				alert('Insufficient funds!');
+			}
 		};
 
 		document.querySelector("#i5").onclick = function(){
 			var i5price = parseInt(document.querySelector("#i5price").innerHTML);
-			subtotal = subtotal+i5price;
-			document.querySelector('#subtotal').innerHTML = subtotal;
+			if (remaining >= i5price) {
+				subtotal = subtotal+i5price;
+				document.querySelector('#subtotal').innerHTML = subtotal;
+				remaining = remaining - i5price;
+				console.log(remaining);
+				document.querySelector('#remaining').innerHTML = remaining;
+			} else {
+				alert('Insufficient funds!');
+			}
 		};
 
 		document.querySelector("#i6").onclick = function(){
 			var i6price = parseInt(document.querySelector("#i6price").innerHTML);
-			subtotal = subtotal+i6price;
-			document.querySelector('#subtotal').innerHTML = subtotal;
+			if (remaining >= i6price) {
+				subtotal = subtotal+i6price;
+				document.querySelector('#subtotal').innerHTML = subtotal;
+				remaining = remaining - i6price;
+				console.log(remaining);
+				document.querySelector('#remaining').innerHTML = remaining;
+			} else {
+				alert('Insufficient funds!');
+			}
 		};
 
 	</script>
