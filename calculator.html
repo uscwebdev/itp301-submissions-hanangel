@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+	<style>
+		#display {
+			font-size: 2em;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1 class="col-12 text-center mt-5">JS Calculator</h1>
+		</div> <!-- .row -->
+		<div class="row">
+			<div id="calculator" class="mt-4 col-12 col-md-6 ml-md-auto mr-md-auto col-lg-4">
+				<div class="row">
+					<input type="text" id="display" class="col-12 text-right form-control" value="0">
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="calc-ac" class="col-9 btn btn-lg btn-outline-dark">AC</button>
+					<button id="calc-div" class="col-3 btn btn-lg btn-outline-dark">/</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="b7" class="col-3 btn btn-lg btn-outline-dark">7</button>
+					<button id="b8" class="col-3 btn btn-lg btn-outline-dark">8</button>
+					<button id="b9" class="col-3 btn btn-lg btn-outline-dark">9</button>
+					<button id="calc-mult" class="col-3 btn btn-lg btn-outline-dark">x</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="b4" class="col-3 btn btn-lg btn-outline-dark">4</button>
+					<button id="b5" class="col-3 btn btn-lg btn-outline-dark">5</button>
+					<button id="b6" class="col-3 btn btn-lg btn-outline-dark">6</button>
+					<button id="calc-sub" class="col-3 btn btn-lg btn-outline-dark">-</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="b1" class="col-3 btn btn-lg btn-outline-dark">1</button>
+					<button id="b2" class="col-3 btn btn-lg btn-outline-dark">2</button>
+					<button id="b3" class="col-3 btn btn-lg btn-outline-dark">3</button>
+					<button id="calc-add" class="col-3 btn btn-lg btn-outline-dark">+</button>
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="b0" class="col-6 btn btn-lg btn-outline-dark">0</button>
+					<button id="bdec" class="col-3 btn btn-lg btn-outline-dark">.</button>
+					<button id="calc-equal" class="col-3 btn btn-lg btn-outline-dark">=</button>
+				</div> <!-- .row -->
+			</div> <!-- #calculator -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+
+	<script>
+
+		/*
+
+		1. store the initial value in a global variable
+
+		2. user enters number into the input field
+
+		3. user presses an operation button
+
+			a. save user input in a variable
+			b. save the operation in a variable
+			c. clear input field
+
+		4. user presses the '=' button
+
+		*/
+
+		var num1 = "";
+		var num2 = "";
+		var operation;
+
+		document.querySelector('#b0').onclick = function(){
+			numx = (document.querySelector("#b0").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b1').onclick = function(){
+			numx = (document.querySelector("#b1").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b2').onclick = function(){
+			numx = (document.querySelector("#b2").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b3').onclick = function(){
+			numx = (document.querySelector("#b3").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b4').onclick = function(){
+			numx = (document.querySelector("#b4").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b5').onclick = function(){
+			numx = (document.querySelector("#b5").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b6').onclick = function(){
+			numx = (document.querySelector("#b6").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b7').onclick = function(){
+			numx = (document.querySelector("#b7").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b8').onclick = function(){
+			numx = (document.querySelector("#b8").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#b9').onclick = function(){
+			numx = (document.querySelector("#b9").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+		document.querySelector('#bdec').onclick = function(){
+			numx = (document.querySelector("bdec").innerHTML);
+			num1 = num1+numx;
+			document.querySelector('#display').value = num1;
+		}
+
+		document.querySelector('#calc-add').onclick = function(){
+			num1 = parseInt(num1);
+			console.log(num1);
+
+			// save the specified operation
+			operation = '+';
+
+			// clear input field
+			document.querySelector('#display').value = '0';
+
+			num2 = "";
+
+			document.querySelector('#b0').onclick = function(){
+				numx = (document.querySelector("#b0").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b1').onclick = function(){
+				numx = (document.querySelector("#b1").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b2').onclick = function(){
+				numx = (document.querySelector("#b2").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b3').onclick = function(){
+				numx = (document.querySelector("#b3").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b4').onclick = function(){
+				numx = (document.querySelector("#b4").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b5').onclick = function(){
+				numx = (document.querySelector("#b5").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b6').onclick = function(){
+				numx = (document.querySelector("#b6").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b7').onclick = function(){
+				numx = (document.querySelector("#b7").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b8').onclick = function(){
+				numx = (document.querySelector("#b8").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b9').onclick = function(){
+				numx = (document.querySelector("#b9").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#bdec').onclick = function(){
+				numx = (document.querySelector("#bdec").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+		}
+
+		document.querySelector('#calc-sub').onclick = function(){
+			num1 = parseInt(num1);
+			console.log(num1);
+
+			// save the specified operation
+			operation = '-';
+
+			// clear input field
+			document.querySelector('#display').value = '0';
+
+			num2 = "";
+
+			document.querySelector('#b0').onclick = function(){
+				numx = (document.querySelector("#b0").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b1').onclick = function(){
+				numx = (document.querySelector("#b1").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b2').onclick = function(){
+				numx = (document.querySelector("#b2").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b3').onclick = function(){
+				numx = (document.querySelector("#b3").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b4').onclick = function(){
+				numx = (document.querySelector("#b4").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b5').onclick = function(){
+				numx = (document.querySelector("#b5").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b6').onclick = function(){
+				numx = (document.querySelector("#b6").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b7').onclick = function(){
+				numx = (document.querySelector("#b7").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b8').onclick = function(){
+				numx = (document.querySelector("#b8").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b9').onclick = function(){
+				numx = (document.querySelector("#b9").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#bdec').onclick = function(){
+				numx = (document.querySelector("#bdec").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+		}
+
+		document.querySelector('#calc-mult').onclick = function(){
+			num1 = parseInt(num1);
+			console.log(num1);
+
+			// save the specified operation
+			operation = 'x';
+
+			// clear input field
+			document.querySelector('#display').value = '0';
+
+			num2 = "";
+
+			document.querySelector('#b0').onclick = function(){
+				numx = (document.querySelector("#b0").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b1').onclick = function(){
+				numx = (document.querySelector("#b1").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b2').onclick = function(){
+				numx = (document.querySelector("#b2").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b3').onclick = function(){
+				numx = (document.querySelector("#b3").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b4').onclick = function(){
+				numx = (document.querySelector("#b4").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b5').onclick = function(){
+				numx = (document.querySelector("#b5").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b6').onclick = function(){
+				numx = (document.querySelector("#b6").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b7').onclick = function(){
+				numx = (document.querySelector("#b7").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b8').onclick = function(){
+				numx = (document.querySelector("#b8").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b9').onclick = function(){
+				numx = (document.querySelector("#b9").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#bdec').onclick = function(){
+				numx = (document.querySelector("#bdec").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+		}
+
+		document.querySelector('#calc-div').onclick = function(){
+			num1 = parseInt(num1);
+			console.log(num1);
+
+			// save the specified operation
+			operation = '/';
+
+			// clear input field
+			document.querySelector('#display').value = '0';
+
+			num2 = "";
+
+			document.querySelector('#b0').onclick = function(){
+				numx = (document.querySelector("#b0").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b1').onclick = function(){
+				numx = (document.querySelector("#b1").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b2').onclick = function(){
+				numx = (document.querySelector("#b2").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b3').onclick = function(){
+				numx = (document.querySelector("#b3").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b4').onclick = function(){
+				numx = (document.querySelector("#b4").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b5').onclick = function(){
+				numx = (document.querySelector("#b5").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b6').onclick = function(){
+				numx = (document.querySelector("#b6").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b7').onclick = function(){
+				numx = (document.querySelector("#b7").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b8').onclick = function(){
+				numx = (document.querySelector("#b8").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#b9').onclick = function(){
+				numx = (document.querySelector("#b9").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+			document.querySelector('#bdec').onclick = function(){
+				numx = (document.querySelector("#bdec").innerHTML);
+				num2 = num2+numx;
+				document.querySelector('#display').value = num2;
+			}
+		}
+
+		document.querySelector('#calc-ac').onclick = function(){
+			document.querySelector('#display').value = "0";
+			num1 = "";
+			num2 = "";
+		}		
+
+		document.querySelector('#calc-equal').onclick = function(){
+
+			// Convert it to a numeric value.
+			num1 = parseInt(num1);
+			num2 = parseInt(num2);
+
+			var result = 'Error';
+
+			if (operation == '+') {
+				result = num1 + num2;
+			} else if (operation == '-') {
+				result = num1 - num2;
+			} else if (operation == 'x') {
+				result = num1 * num2;
+			} else if (operation == '/') {
+				result = num1 / num2;
+			}
+
+			document.querySelector('#display').value = result;
+		}
+
+
+	</script>
+</body>
+</html>
