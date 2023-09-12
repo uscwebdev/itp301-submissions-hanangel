@@ -523,11 +523,11 @@
 				document.querySelector('#display').value = num1;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				if (num2.includes(".") == true) {
-					num2 = num2; // don't change anything; maintain the same number
+				if (num1.includes(".") == true) {
+					num1 = num1; // don't change anything; maintain the same number
 				} else {
 					numx = dec;
-					num2 = num2+numx; // add the decimal to the number
+					num1 = num1+numx; // add the decimal to the number
 				}
 				document.querySelector('#display').value = num1;
 			}
