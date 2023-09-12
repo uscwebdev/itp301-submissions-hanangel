@@ -74,6 +74,9 @@
 		var num1 = "";
 		var num2 = "";
 		var operation;
+		var dec;
+		dec = document.querySelector("#bdec").innerHTML;
+		console.log(dec);
 
 		document.querySelector('#b0').onclick = function(){
 			numx = (document.querySelector("#b0").innerHTML);
@@ -126,13 +129,18 @@
 			document.querySelector('#display').value = num1;
 		}
 		document.querySelector('#bdec').onclick = function(){
-			numx = (document.querySelector("bdec").innerHTML);
+			numx = dec;
 			num1 = num1+numx;
 			document.querySelector('#display').value = num1;
 		}
 
 		document.querySelector('#calc-add').onclick = function(){
-			num1 = parseInt(num1);
+
+			if (num1.includes(".") == true) {
+				num1 = parseFloat(num1);
+			} else {
+				num1 = parseInt(num1);
+			}
 			console.log(num1);
 
 			// save the specified operation
@@ -194,14 +202,19 @@
 				document.querySelector('#display').value = num2;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = (document.querySelector("#bdec").innerHTML);
+				numx = dec;
 				num2 = num2+numx;
 				document.querySelector('#display').value = num2;
 			}
 		}
 
 		document.querySelector('#calc-sub').onclick = function(){
-			num1 = parseInt(num1);
+			
+			if (num1.includes(".") == true) {
+				num1 = parseFloat(num1);
+			} else {
+				num1 = parseInt(num1);
+			}
 			console.log(num1);
 
 			// save the specified operation
@@ -263,14 +276,19 @@
 				document.querySelector('#display').value = num2;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = (document.querySelector("#bdec").innerHTML);
+				numx = dec;
 				num2 = num2+numx;
 				document.querySelector('#display').value = num2;
 			}
 		}
 
 		document.querySelector('#calc-mult').onclick = function(){
-			num1 = parseInt(num1);
+			
+			if (num1.includes(".") == true) {
+				num1 = parseFloat(num1);
+			} else {
+				num1 = parseInt(num1);
+			}
 			console.log(num1);
 
 			// save the specified operation
@@ -332,15 +350,19 @@
 				document.querySelector('#display').value = num2;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = (document.querySelector("#bdec").innerHTML);
+				numx = dec;
 				num2 = num2+numx;
 				document.querySelector('#display').value = num2;
 			}
 		}
 
 		document.querySelector('#calc-div').onclick = function(){
-			num1 = parseInt(num1);
-			console.log(num1);
+			
+			if (num1.includes(".") == true) {
+				num1 = parseFloat(num1);
+			} else {
+				num1 = parseInt(num1);
+			}
 
 			// save the specified operation
 			operation = '/';
@@ -401,7 +423,7 @@
 				document.querySelector('#display').value = num2;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = (document.querySelector("#bdec").innerHTML);
+				numx = dec;
 				num2 = num2+numx;
 				document.querySelector('#display').value = num2;
 			}
@@ -411,24 +433,90 @@
 			document.querySelector('#display').value = "0";
 			num1 = "";
 			num2 = "";
+
+			document.querySelector('#b0').onclick = function(){
+				numx = (document.querySelector("#b0").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b1').onclick = function(){
+				numx = (document.querySelector("#b1").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b2').onclick = function(){
+				numx = (document.querySelector("#b2").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b3').onclick = function(){
+				numx = (document.querySelector("#b3").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b4').onclick = function(){
+				numx = (document.querySelector("#b4").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b5').onclick = function(){
+				numx = (document.querySelector("#b5").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b6').onclick = function(){
+				numx = (document.querySelector("#b6").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b7').onclick = function(){
+				numx = (document.querySelector("#b7").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b8').onclick = function(){
+				numx = (document.querySelector("#b8").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#b9').onclick = function(){
+				numx = (document.querySelector("#b9").innerHTML);
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
+			document.querySelector('#bdec').onclick = function(){
+				numx = dec;
+				num1 = num1+numx;
+				document.querySelector('#display').value = num1;
+			}
 		}		
 
 		document.querySelector('#calc-equal').onclick = function(){
 
 			// Convert it to a numeric value.
-			num1 = parseInt(num1);
-			num2 = parseInt(num2);
+			if (num2.includes(".") == true) {
+				num2 = parseFloat(num2);
+			} else {
+				num2 = parseInt(num2);
+			}
+
+			console.log(num1);
+			console.log(num2);
 
 			var result = 'Error';
 
 			if (operation == '+') {
 				result = num1 + num2;
+				console.log(result);
 			} else if (operation == '-') {
 				result = num1 - num2;
+				console.log(result);
 			} else if (operation == 'x') {
 				result = num1 * num2;
+				console.log(result);
 			} else if (operation == '/') {
 				result = num1 / num2;
+				console.log(result);
 			}
 
 			document.querySelector('#display').value = result;
