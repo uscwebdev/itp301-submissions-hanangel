@@ -63,25 +63,30 @@
 
 		3. user presses an operation button
 
-			a. save user input in a variable
-			b. save the operation in a variable
-			c. clear input field
+			a. save the operation in a variable
+			b. clear input field
+			c. user enters in the next number
 
 		4. user presses the '=' button
+			a. if statement - depending on the operation the calculation is performed
+			b. user can press 'ac' to clear everything
 
 		*/
 
-		var num1 = "";
-		var num2 = "";
-		var operation;
-		var dec;
+
+		var num1 = ""; // 1st num
+		var num2 = ""; // 2nd num
+		var operation; // variable for +, -. x, /
+
+		var dec; // decimal operation (store decimal in a variable)
 		dec = document.querySelector("#bdec").innerHTML;
 		console.log(dec);
 
-		document.querySelector('#b0').onclick = function(){
-			numx = (document.querySelector("#b0").innerHTML);
-			num1 = num1+numx;
-			document.querySelector('#display').value = num1;
+		// user enters first number - get numeric value from button (innerHTML)
+		document.querySelector('#b0').onclick = function(){ // once button is clicked
+			numx = (document.querySelector("#b0").innerHTML); // store number (string) in variable
+			num1 = num1+numx; // concatenate the original num1 variable and the new variable to allow for multidigit entries
+			document.querySelector('#display').value = num1; // display new value
 		}
 		document.querySelector('#b1').onclick = function(){
 			numx = (document.querySelector("#b1").innerHTML);
@@ -128,18 +133,26 @@
 			num1 = num1+numx;
 			document.querySelector('#display').value = num1;
 		}
-		document.querySelector('#bdec').onclick = function(){
-			numx = dec;
-			num1 = num1+numx;
+
+		// for decimal entries
+		document.querySelector('#bdec').onclick = function(){ 
+			if (num1.includes(".") == true) { // check if the string contains a decimal (period) already
+				num1 = num1; // don't change anything; maintain the same number (prevent user from adding additional decimals)
+			} else {
+				numx = dec; // if no decimal in string yet, allow user to enter decimal point
+				num1 = num1+numx; // add the decimal to the number
+			}
 			document.querySelector('#display').value = num1;
 		}
 
+		// 'add' function
 		document.querySelector('#calc-add').onclick = function(){
 
-			if (num1.includes(".") == true) {
-				num1 = parseFloat(num1);
+			// parse num1 string into Float or integer
+			if (num1.includes(".") == true) { // if the string contains a decimal
+				num1 = parseFloat(num1); // parse into Float
 			} else {
-				num1 = parseInt(num1);
+				num1 = parseInt(num1); // if not, parse into integer
 			}
 			console.log(num1);
 
@@ -149,8 +162,10 @@
 			// clear input field
 			document.querySelector('#display').value = '0';
 
+			// declare num2 variable for second number
 			num2 = "";
 
+			// user enters second number (same process as num1 entry)
 			document.querySelector('#b0').onclick = function(){
 				numx = (document.querySelector("#b0").innerHTML);
 				num2 = num2+numx;
@@ -202,12 +217,17 @@
 				document.querySelector('#display').value = num2;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = dec;
-				num2 = num2+numx;
+				if (num2.includes(".") == true) {
+					num2 = num2; // don't change anything; maintain the same number
+				} else {
+					numx = dec;
+					num2 = num2+numx; // add the decimal to the number
+				}
 				document.querySelector('#display').value = num2;
 			}
 		}
 
+		// 'subtract' function
 		document.querySelector('#calc-sub').onclick = function(){
 			
 			if (num1.includes(".") == true) {
@@ -276,12 +296,17 @@
 				document.querySelector('#display').value = num2;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = dec;
-				num2 = num2+numx;
+				if (num2.includes(".") == true) {
+					num2 = num2; // don't change anything; maintain the same number
+				} else {
+					numx = dec;
+					num2 = num2+numx; // add the decimal to the number
+				}
 				document.querySelector('#display').value = num2;
 			}
 		}
 
+		// 'multiply' function
 		document.querySelector('#calc-mult').onclick = function(){
 			
 			if (num1.includes(".") == true) {
@@ -350,12 +375,17 @@
 				document.querySelector('#display').value = num2;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = dec;
-				num2 = num2+numx;
+				if (num2.includes(".") == true) {
+					num2 = num2; // don't change anything; maintain the same number
+				} else {
+					numx = dec;
+					num2 = num2+numx; // add the decimal to the number
+				}
 				document.querySelector('#display').value = num2;
 			}
 		}
 
+		// 'divide' function
 		document.querySelector('#calc-div').onclick = function(){
 			
 			if (num1.includes(".") == true) {
@@ -423,17 +453,25 @@
 				document.querySelector('#display').value = num2;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = dec;
-				num2 = num2+numx;
+				if (num2.includes(".") == true) {
+					num2 = num2; // don't change anything; maintain the same number
+				} else {
+					numx = dec;
+					num2 = num2+numx; // add the decimal to the number
+				}
 				document.querySelector('#display').value = num2;
 			}
 		}
 
+		// 'ac' function
 		document.querySelector('#calc-ac').onclick = function(){
-			document.querySelector('#display').value = "0";
-			num1 = "";
+
+			// clear everything
+			document.querySelector('#display').value = "0"; // redisplay 0
+			num1 = ""; // clear both num1 and num2 variables
 			num2 = "";
 
+			// have user re-enter num1 value to perform a new calculation
 			document.querySelector('#b0').onclick = function(){
 				numx = (document.querySelector("#b0").innerHTML);
 				num1 = num1+numx;
@@ -485,40 +523,40 @@
 				document.querySelector('#display').value = num1;
 			}
 			document.querySelector('#bdec').onclick = function(){
-				numx = dec;
-				num1 = num1+numx;
+				if (num2.includes(".") == true) {
+					num2 = num2; // don't change anything; maintain the same number
+				} else {
+					numx = dec;
+					num2 = num2+numx; // add the decimal to the number
+				}
 				document.querySelector('#display').value = num1;
 			}
 		}		
 
+		// 'equal' function
 		document.querySelector('#calc-equal').onclick = function(){
 
-			// Convert it to a numeric value.
+			// convert num2 to a numeric value (same as num1 conversion)
 			if (num2.includes(".") == true) {
 				num2 = parseFloat(num2);
 			} else {
 				num2 = parseInt(num2);
 			}
 
-			console.log(num1);
-			console.log(num2);
-
 			var result = 'Error';
 
+			// calculate the answer based on the operation specified
 			if (operation == '+') {
 				result = num1 + num2;
-				console.log(result);
 			} else if (operation == '-') {
 				result = num1 - num2;
-				console.log(result);
 			} else if (operation == 'x') {
 				result = num1 * num2;
-				console.log(result);
 			} else if (operation == '/') {
 				result = num1 / num2;
-				console.log(result);
 			}
 
+			// display result
 			document.querySelector('#display').value = result;
 		}
 
