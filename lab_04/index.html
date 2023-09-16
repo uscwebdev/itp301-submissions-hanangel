@@ -163,28 +163,32 @@
 	
 	<script>
 
-		var containers = document.querySelectorAll('.container');
-		console.log(containers);
+		// store all thumbnail images in array
 		var thumbnails = document.querySelectorAll('.thumbnail');
 		console.log(thumbnails);
-		console.log(thumbnails[0].src);
-		var caption = document.querySelector('#caption').innerHTML;
-		console.log(caption);
 
-		var imgalt = (document.querySelector('#img1')).alt;
-		console.log(imgalt);
-
+		// use for loop to bind event handlers for each thumbnail image in array
 		for (var i = 0; i < thumbnails.length; i++) {
-			console.log(i);
+	
+			// thumbnail is clicked
 			thumbnails[i].onclick = function(){
 				console.log(this);
+
+				// thumbnail image stored in new variable
 				var magnifiedImg = this.src;
 				console.log(magnifiedImg);
+
+				// thumbnail image alt stored in new variable
 				var imgCaption = this.alt;
 				console.log(imgCaption);
 
+				// set clicked thumbnail image as new magnified image
 				document.querySelector("#magnified-image").src = magnifiedImg;
+
+				// set clicked thumbnail image alt as new magnified image alt
 				document.querySelector("#magnified-image").alt = imgCaption;
+
+				// set clicked thumbnail image captioin as new magnified image alt
 				document.querySelector("#caption").innerHTML = imgCaption;
 			}
 		}
