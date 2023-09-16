@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angela Han | Assignment 01: JS Photo Gallery</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+
+	<style>
+		h1 {
+			font-family:"Goudy Bookletter 1911", serif;
+			font-weight:normal;
+			font-size:40px;
+			letter-spacing:3.5px;
+			color:#484859;
+			text-align:center;
+			line-height:54px;
+			padding-top:90px;
+			margin:0;
+		}
+
+		h2 {
+			font-size:16px;
+			font-style:italic;
+			font-family:"Monaco";
+			letter-spacing:3px;
+			text-align:center;
+		}
+
+		h3 {
+			font-size:20px;
+			font-weight:normal;
+			font-style:italic;
+			font-family:"Monaco", serif;
+			letter-spacing:2.5px;
+			text-align:center;
+			padding-bottom:10px;
+			border-bottom:1.2px outset lightgray;
+		}
+
+		p {
+			font-size:18px;
+			font-family:"Goudy Bookletter 1911", serif;
+			letter-spacing:1.5px;
+			padding:0px 15px;
+		}
+
+		a {
+			text-decoration: none;
+			color:#303050;
+		}
+
+		.center {
+			 display:flex;
+			 justify-content:center;
+			 align-items:center;
+		}
+
+		#gallery {
+			background-color:white;
+			width:650px;
+			margin:0 auto;
+			margin-top:30px;
+		}
+
+		#row1 {
+			width:650px;
+			padding-top:35px;
+			padding-bottom:35px;
+			margin:0 auto;
+		}
+
+		#row2 {
+			width:650px;
+			padding-bottom:35px;
+			margin:0 auto;
+		}
+
+		.container {
+			float:left;
+			width:170px;
+			height:170px;
+			background-color:lightgray;
+			margin-left:35px;
+		}
+
+		.container img {
+			height:170px;
+			width:100%;
+		}
+
+		#magnify {
+			margin:0 auto;
+			margin-top:20px;
+			margin-bottom:120px;
+			padding:35px;
+			width:480px;
+			height:480px;
+			border:11px dotted #68a1da;
+		}
+
+		#magnify .container {
+			margin:0 auto;
+			width:480px;
+			height:480px;
+		}
+
+		#magnify img {
+			height:480px;
+			width:100%;
+		}
+
+  		.clearfloat {
+			clear:both;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1>JS PHOTO GALLERY</h1>
+		<h2>Angela Han</h2>
+	</div>
+
+	<div id="gallery">
+		<div id="row1">
+			<div class="container" id="img1">
+				 <img src="img/bakery1.jpeg" alt="taiyaki">
+			</div>
+			<div class="container" id="img2">
+				 <img src="img/bakery2.jpeg" alt="bun with pastry cream">
+			</div>
+			<div class="container" id="img3">
+				 <img src="img/bakery3.jpeg" alt="colorful cake">
+			</div>
+			<div class="clearfloat"></div>
+		</div>
+		<div id="row2">
+			<div class="container" id="img4">
+				 <img src="img/bakery4.jpeg" alt="strawberry cake">
+			</div>
+			<div class="container" id="img5">
+				 <img src="img/bakery5.jpeg" alt="cloud-shaped macarons">
+			</div>
+			<div class="container" id="img6">
+				 <img src="img/bakery6.jpeg" alt="swiss roll">
+			</div>
+			<div class="clearfloat"></div>
+		</div>
+	</div>
+
+	<div id="magnify">
+		<div class="container">
+			<img id="magnified-image" src="img/bakery1.jpeg" alt="taiyaki">
+		</div>
+	</div>
+	
+	<script>
+		document.querySelector("#img1").onclick = function(){
+			document.querySelector("#magnified-image").src = "img/bakery1.jpeg";
+			document.querySelector("#magnified-image").alt = "taiyaki";
+		};
+
+		document.querySelector("#img2").onclick = function(){
+			document.querySelector("#magnified-image").src = "img/bakery2.jpeg";
+			document.querySelector("#magnified-image").alt = "bun with pastry cream";
+		};
+
+		document.querySelector("#img3").onclick = function(){
+			document.querySelector("#magnified-image").src = "img/bakery3.jpeg";
+			document.querySelector("#magnified-image").alt = "colorful cake";
+		};
+
+		document.querySelector("#img4").onclick = function(){
+			document.querySelector("#magnified-image").src = "img/bakery4.jpeg";
+			document.querySelector("#magnified-image").alt = "strawberry cake";
+		};
+
+		document.querySelector("#img5").onclick = function(){
+			document.querySelector("#magnified-image").src = "img/bakery5.jpeg";
+			document.querySelector("#magnified-image").alt = "cloud-shaped macarons";
+		};
+
+		document.querySelector("#img6").onclick = function(){
+			document.querySelector("#magnified-image").src = "img/bakery6.jpeg";
+			document.querySelector("#magnified-image").alt = "swiss roll";
+		};
+	</script>
+</body>
+</html>
+
