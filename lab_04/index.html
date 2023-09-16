@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Angela Han | Assignment 01: JS Photo Gallery</title>
+	<title>Angela Han | Lab 04: Updated Photo Gallery</title>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +93,7 @@
 		#magnify {
 			margin:0 auto;
 			margin-top:20px;
-			margin-bottom:120px;
+			margin-bottom:20px;
 			padding:35px;
 			width:480px;
 			height:480px;
@@ -111,6 +111,10 @@
 			width:100%;
 		}
 
+		#text {
+			padding-bottom:90px;
+		}
+
   		.clearfloat {
 			clear:both;
 		}
@@ -119,32 +123,32 @@
 </head>
 <body>
 	<div id="header">
-		<h1>JS PHOTO GALLERY</h1>
+		<h1>UPDATED PHOTO GALLERY</h1>
 		<h2>Angela Han</h2>
 	</div>
 
 	<div id="gallery">
 		<div id="row1">
-			<div class="container" id="img1">
-				 <img src="img/bakery1.jpeg" alt="taiyaki">
+			<div class="container">
+				 <img class="thumbnail" id="img1" src="img/bakery1.jpeg" alt="taiyaki">
 			</div>
-			<div class="container" id="img2">
-				 <img src="img/bakery2.jpeg" alt="bun with pastry cream">
+			<div class="container">
+				 <img class="thumbnail" id="img2" src="img/bakery2.jpeg" alt="bun with pastry cream">
 			</div>
-			<div class="container" id="img3">
-				 <img src="img/bakery3.jpeg" alt="colorful cake">
+			<div class="container">
+				 <img class="thumbnail" id="img3" src="img/bakery3.jpeg" alt="colorful cake">
 			</div>
 			<div class="clearfloat"></div>
 		</div>
 		<div id="row2">
-			<div class="container" id="img4">
-				 <img src="img/bakery4.jpeg" alt="strawberry cake">
+			<div class="container">
+				 <img class="thumbnail" id="img4" src="img/bakery4.jpeg" alt="strawberry cake">
 			</div>
-			<div class="container" id="img5">
-				 <img src="img/bakery5.jpeg" alt="cloud-shaped macarons">
+			<div class="container">
+				 <img class="thumbnail" id="img5" src="img/bakery5.jpeg" alt="cloud-shaped macarons">
 			</div>
-			<div class="container" id="img6">
-				 <img src="img/bakery6.jpeg" alt="swiss roll">
+			<div class="container">
+				 <img class="thumbnail" id="img6" src="img/bakery6.jpeg" alt="swiss roll">
 			</div>
 			<div class="clearfloat"></div>
 		</div>
@@ -155,8 +159,37 @@
 			<img id="magnified-image" src="img/bakery1.jpeg" alt="taiyaki">
 		</div>
 	</div>
+	<div id="text"><h2 id="caption">taiyaki</h2></div>
 	
 	<script>
+
+		var containers = document.querySelectorAll('.container');
+		console.log(containers);
+		var thumbnails = document.querySelectorAll('.thumbnail');
+		console.log(thumbnails);
+		console.log(thumbnails[0].src);
+		var caption = document.querySelector('#caption').innerHTML;
+		console.log(caption);
+
+		var imgalt = (document.querySelector('#img1')).alt;
+		console.log(imgalt);
+
+		for (var i = 0; i < thumbnails.length; i++) {
+			console.log(i);
+			thumbnails[i].onclick = function(){
+				console.log(this);
+				var magnifiedImg = this.src;
+				console.log(magnifiedImg);
+				var imgCaption = this.alt;
+				console.log(imgCaption);
+
+				document.querySelector("#magnified-image").src = magnifiedImg;
+				document.querySelector("#magnified-image").alt = imgCaption;
+				document.querySelector("#caption").innerHTML = imgCaption;
+			}
+		}
+
+		/*
 		document.querySelector("#img1").onclick = function(){
 			document.querySelector("#magnified-image").src = "img/bakery1.jpeg";
 			document.querySelector("#magnified-image").alt = "taiyaki";
@@ -169,7 +202,7 @@
 
 		document.querySelector("#img3").onclick = function(){
 			document.querySelector("#magnified-image").src = "img/bakery3.jpeg";
-			document.querySelector("#magnified-image").alt = "colorful cake";
+			document.querySelector("#magnified-image").alt = "pastel cake";
 		};
 
 		document.querySelector("#img4").onclick = function(){
@@ -184,8 +217,9 @@
 
 		document.querySelector("#img6").onclick = function(){
 			document.querySelector("#magnified-image").src = "img/bakery6.jpeg";
-			document.querySelector("#magnified-image").alt = "swiss roll";
+			document.querySelector("#magnified-image").alt = "swiss roll with berries";
 		};
+		*/
 	</script>
 </body>
 </html>
