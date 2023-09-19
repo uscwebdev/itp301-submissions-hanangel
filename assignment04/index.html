@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 04: Liar's Dice</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+
+	<style>
+
+		h1 {
+			padding-top:120px;
+			font-size:30px;
+			font-style:italic;
+			font-family:"Monaco";
+			letter-spacing:3px;
+			text-align:center;
+			margin:0 auto;
+		}
+
+		h2 {
+			font-size:24px;
+			font-weight:normal;
+			font-style:italic;
+			font-family:"Monaco", serif;
+			letter-spacing:2.5px;
+			text-align:left;
+			padding-left:20px;
+		}
+
+		label {
+			font-size:16px;
+			font-weight:normal;
+			font-style:italic;
+			font-family:"Monaco";
+			letter-spacing:1.8px;
+			text-align:center;
+			padding-right:4px;
+			padding-bottom:10px;		
+		}
+
+		input {
+			margin-right:10px;
+			font-size:25px;
+			width:140px;
+			padding-bottom:8px;
+			border-radius:8px;
+			border-width:1px;
+		}
+
+		p {
+			font-size:18px;
+			font-family:"Goudy Bookletter 1911", serif;
+			letter-spacing:1.5px;
+			padding:0px 15px;
+		}
+
+		a {
+			text-decoration: none;
+			color:#303050;
+		}
+
+		.center {
+			 display:flex;
+			 justify-content:center;
+			 align-items:center;
+		}
+
+		#guessRow {
+			padding-top:70px;
+			padding-bottom:50px;
+			margin:0 auto;
+		}
+
+		#submit {
+		    font-family:"Monaco";
+		    font-size:13px;
+		    letter-spacing:1.2px;
+		    padding:14px 18px;
+		    background-color:#95ABC2;
+		    color:white;
+		    border-radius:12px;
+		    border:0;
+		}
+
+		#submit:hover {
+			box-shadow: 0 10px 15px 0 rgba(0,0,0,0.2);
+		}
+
+		#resultRow {
+			width:700px;
+			margin:0 auto;
+		}
+
+		#dices {
+			width:700px;
+			height:120px;
+			margin:0 auto;
+			padding:40px 0px;
+		}
+
+		img {
+		    width:120px;
+		    height:120px;
+		    padding:0px 10px;
+		    margin:0 auto;
+		    float:left;
+  		}
+
+  		.clearfloat {
+			clear:both;
+		}
+
+	</style>
+	
+</head>
+</head>
+<body>
+	<div id="header">
+		<h1>LIAR'S DICE</h1>
+	</div>
+
+	<div id="guessRow" class="center">
+		<div class="row">
+			<label for="guess">Your Guess:</label>
+			<input type="text" id="guess" name="guess"/>
+			<button id="submit">Submit</button>
+		</div>
+	</div>
+
+	<div id="resultRow">
+		<h2>RESULTS: <span id="results"></span></h2>
+	</div>
+
+	<div id="dices">
+		<div>
+			<img class="dice-face" id="d1" src="dice_images/1.png" alt="1">
+		</div>
+		<div>
+			<img class="dice-face" id="d2" src="dice_images/1.png" alt="1">
+		</div>
+		<div>
+			<img class="dice-face" id="d3" src="dice_images/1.png" alt="1">
+		</div>
+		<div>
+			<img class="dice-face" id="d4" src="dice_images/1.png" alt="1">
+		</div>
+		<div>
+			<img class="dice-face" id="d5" src="dice_images/1.png" alt="1">
+		</div>
+		<div class="clearfloat"></div>
+	</div>
+	
+	<script>
+
+		var guess;
+
+		document.querySelector("#submit").onclick = function(){
+			guess = parseInt(document.querySelector("#guess").value);
+			console.log(guess);
+
+			var diceFaces = document.querySelectorAll(".dice-face");
+			console.log(diceFaces);
+
+			randomNums = [];
+
+			for (let i = 0; i < 5; i++) {
+				var random = Math.floor(Math.random() * 6) + 1;
+				console.log(random);
+			  	randomNums.push(random);
+			  	var id = i+1;
+			  	var diceId = "d" + id;
+
+
+			  	actual = random - 1;
+			  	console.log(actual);
+
+
+			  	//var diceFace = diceFaces[actual];
+			  	//console.log(diceFace);
+
+			  	document.getElementById(diceId).src = "dice_images/"+ random + ".png";
+			  	document.getElementById(diceId).alt = random;
+			}
+
+			console.log(randomNums);
+
+			if (randomNums.includes(guess)) {
+				document.getElementById("results").style.color = "green";
+				document.querySelector("#results").innerHTML = "You guessed it!";
+			} else {
+				document.getElementById("results").style.color = "red";
+				document.querySelector("#results").innerHTML = "Try again.";
+			}
+
+		}
+		
+	</script>
+</body>
+</html>
+
