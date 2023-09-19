@@ -154,38 +154,57 @@
 	
 	<script>
 
+		/*
+
+		1. have user submit a guess; store guess in variable
+
+		2. store the dice faces on the screen in an array
+
+		3. create an array for the random numbers
+
+		4. generate random numbers and add them to the array using for loop
+
+		5. based on the random number generated, set the new image to the dice with that number of dots
+
+		6. oheck whether the user's guess exists in the generated random number array
+
+		7. if it's in there print success message; otherwise print try again
+
+		*/
+
+		// initialize variables
 		var guess;
-
-		document.querySelector("#submit").onclick = function(){
-			guess = parseInt(document.querySelector("#guess").value);
-			console.log(guess);
-
-			var diceFaces = document.querySelectorAll(".dice-face");
+		var diceFaces = document.querySelectorAll(".dice-face");
 			console.log(diceFaces);
 
+		// user submits guess
+		document.querySelector("#submit").onclick = function(){
+			guess = parseInt(document.querySelector("#guess").value);
+
+			// create array for random numbers
 			randomNums = [];
 
+			// for loop to generate random numbers + change each picture based on each random number
 			for (let i = 0; i < 5; i++) {
+
+				// generate random number
 				var random = Math.floor(Math.random() * 6) + 1;
 				console.log(random);
+
+				// add random number to the array
 			  	randomNums.push(random);
+
+			  	// add 1 to i to adjust for the right id
 			  	var id = i+1;
 			  	var diceId = "d" + id;
 
-
-			  	actual = random - 1;
-			  	console.log(actual);
-
-
-			  	//var diceFace = diceFaces[actual];
-			  	//console.log(diceFace);
-
+			  	// change src to new src image based on number of dots
+			  	// concatenate the values for the src variable
 			  	document.getElementById(diceId).src = "dice_images/"+ random + ".png";
 			  	document.getElementById(diceId).alt = random;
 			}
 
-			console.log(randomNums);
-
+			// if statement to check whether user's guess is in the random generated array
 			if (randomNums.includes(guess)) {
 				document.getElementById("results").style.color = "green";
 				document.querySelector("#results").innerHTML = "You guessed it!";
@@ -197,6 +216,7 @@
 		}
 		
 	</script>
+	
 </body>
 </html>
 
