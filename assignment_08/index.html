@@ -68,6 +68,10 @@
 			letter-spacing:1px;
 		}
 
+		ul {
+			padding-bottom:20px;
+		}
+
 		li {
 			font-size:12px;
 			font-family:"Monaco";
@@ -103,21 +107,15 @@
 			width:370px;
 			float:left;
 		}
+
+		#colorpalette {
+			padding-bottom:0px;
+		}
 		
 		#row3 {
-			width:700px;
-			height:430px;
+			width:660px;
 			color:white;
-		}
-		#column3-1 {
-			padding:0px 20px;
-			width:250px;
-			float:left;
-		}
-		#column3-2 {
-			padding:0px 20px;
-			width:370px;
-			float:left;
+			padding:30px 20px 0px;
 		}
 
 		.img1 {
@@ -125,9 +123,10 @@
 			height:auto;
 		}
 		#row4 {
-			width:700px;
+			width:660px;
 			height:500px;
 			color:white;
+			padding:0px 20px 20px;
 		}
 
 		.imgx {
@@ -173,7 +172,7 @@
 			<p>My website will be clean and modern with a more neutral color palette so that the focus remains on the books. The images of the book covers will be larger in size, compared to the rest of the content on the page. Main logos will use a serif font, but smaller text will be in a sans-serif font to increase readability. </p>
 
 			<h3>COLOR PALETTE</h3>
-			<p>The color palette will include black, white, neutrals, and some accent colors such as blue or orange. These colors will keep the page looking clean, simple, and easily navigable. Blue colors also reduce eye strain.</p>
+			<p id="colorpalette">The color palette will include black, white, neutrals, and some accent colors such as blue or orange. These colors will keep the page looking clean, simple, and easily navigable. Blue colors also reduce eye strain.</p>
 
 			<img class="img1" src="img/colorpalettenames.png" alt="color palette">
 
@@ -183,6 +182,7 @@
 				<li><a href="http://ougd.webflow.io/" target="_blank">Ohio University's School of Art + Design</a></li>
 				<li><a href="http://waw.webflow.io/" target="_blank">White Art Walk Studio</a></li>
 				<li><a href="https://www.moma.org/calendar/exhibitions/5493" target="_blank">Georgia O'Keeffe at the MoMA</a></li>
+				<li><a href="https://www.sylvaindelaporte.com/" target="_blank">Silvain de la Porte's Portfolio</a></li>
 			</ul>
 
 		</div>
@@ -191,38 +191,22 @@
 	</div>
 
 	<div id="row3">
-		<div id="column3-1">
 			<h2>SCOPE</h2>
 
-			<p>The website will include four pages.</p>
+			<p>The website will include three pages.</p>
 
-			<p>The first page will be a landing page for the museum that includes basic information about upcoming exhibits and new events at the museum. The second page will be a brief content page about the history of the museum and the main featured artist, Monet. The third page will be a gallery of the works of Monet and other artists showcased at the museum. The fourth page will be a museum gift shop where you can browse items that are sold by the museum.</p>
-		</div>
+			<p>1. Bestsellers and Recommendations: This page will display the current bestsellers lists from The New York Times. Users can explore and discover popular books across various genres. Each book entry includes its cover image, a brief description, author information, and links to reviews.</p>
 
-		<div id="column3-2">
-			<h2>PAGES</h2>
+			<p>2. Book and Author Search: On this page, users can look up books or authors they're interested in. The API will find the book/author, as well as display reviews, along with relevant articles.</p>
 
-			<h4>Landing Page</h4>
+			<p>3. Personal Favorites and Recommendations: This page will show the user's favorites and allow users to add ratings and commentary/notes about what they enjoyed/didn't enjoy about the book; it will be similar to a personal reading journal.</p>
+
+			<h3>EXTRAS</h3>
 			<ul>
-				<li>front page cover</li>
-				<li>current exhibits</li>
-				<li>new events</li>
-			</ul>
-			<h4>About Us</h4>
-			<ul>
-				<li>history</li>
-				<li>featured artist - monet</li>
-			</ul>
-			<h4>Gallery</h4>
-			<ul>
-				<li>images of artworks on display</li>
-			</ul>
-			<h4>Museum Store</h4>
-			<ul>
-				<li>gift shop items</li>
+				<li>New York Times Books API</li>
+				<li>Event-driven DOM Manipulation (e.g. allow users to save favorite books, add reviews, conduct searches)</li>
 			</ul>
 
-		</div>
 	</div>
 
 	<div id="row4">
